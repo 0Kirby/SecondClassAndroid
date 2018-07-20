@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SecondClassActivity</string>
+    <string name="button1">获取</string>
+    <string name="textView1">请点击获取按钮！</string>
+</resources>
