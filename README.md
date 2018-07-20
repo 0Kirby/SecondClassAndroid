@@ -1,0 +1,2 @@
+# SecondClassAndroid
+调用改写的腾讯云API库在安卓实现调用
