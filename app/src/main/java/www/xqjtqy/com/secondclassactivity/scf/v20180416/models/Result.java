@@ -1,5 +1,5 @@
 package www.xqjtqy.com.secondclassactivity.scf.v20180416.models;
-import com.tencentcloudapi.common.AbstractModel;
+import www.xqjtqy.com.secondclassactivity.common.AbstractModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;

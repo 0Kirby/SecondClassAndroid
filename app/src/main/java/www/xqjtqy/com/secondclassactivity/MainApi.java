@@ -16,12 +16,12 @@ public class MainApi {
             inrq.setFunctionName("Hello");
             inrq.setLogType("Tail");
             InvokeResponse inrs = client.Invoke(inrq);
-            re = InvokeResponse.toJsonString(inrs).replaceAll("\\\\u0027", "\"").replaceAll("\\\\\"", "\"");
+            re = InvokeResponse.toJsonString(inrs);
         }
         catch (TencentCloudSDKException e) {
             re =e.toString();
         }
         return re;
-    };
+    }
 
 }

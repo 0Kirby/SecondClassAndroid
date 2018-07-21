@@ -67,7 +67,7 @@ abstract public class AbstractModel {
      * @return json格式的string
      */
     public static <O extends AbstractModel> String toJsonString (O obj) {
-    	Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    	Gson gson = new GsonBuilder().disableHtmlEscaping().create();
     	return gson.toJson(obj);
     }
     
