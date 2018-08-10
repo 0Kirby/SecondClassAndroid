@@ -13,7 +13,7 @@ import www.xqjtqy.com.secondclassactivity.scf.v20180416.models.InvokeRequest;
 import www.xqjtqy.com.secondclassactivity.scf.v20180416.models.InvokeResponse;
 
 public class MainApi {
-
+    static String [] idData = new String[10];
     public static String getApi() {
         String re;
         try {
@@ -57,6 +57,7 @@ public class MainApi {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 id = jsonObject.getString("id");
                 Log.d("JSTS", id);
+                idData[i]=id;
             }
 
 
