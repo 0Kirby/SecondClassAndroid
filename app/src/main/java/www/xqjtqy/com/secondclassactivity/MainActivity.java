@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                                 txt.setMovementMethod(ScrollingMovementMethod.getInstance());
                                 txt.setText(res);
                                 Toast.makeText(MainActivity.this,"成功！" , Toast.LENGTH_LONG).show();
+                                MainApi.parseJSONWithJSONObject(res);
                             }
                         });
                     }
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
-
-
 
 
