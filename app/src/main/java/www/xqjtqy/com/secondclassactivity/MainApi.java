@@ -13,7 +13,18 @@ import www.xqjtqy.com.secondclassactivity.scf.v20180416.models.InvokeRequest;
 import www.xqjtqy.com.secondclassactivity.scf.v20180416.models.InvokeResponse;
 
 public class MainApi {
-    static String [] idData = new String[10];
+    static String[] idData = new String[10];
+    static String[] nameData = new String[10];
+    static String[] categoryData = new String[10];
+    static String[] startData = new String[10];
+    static String[] endData = new String[10];
+    static String[] addrData = new String[10];
+    static String[] statusData = new String[10];
+    static String[] teacherData = new String[10];
+    static String[] creditData = new String[10];
+    static String[] dAddrData = new String[10];
+    static String[] returnCode = new String[2];
+
     public static String getApi() {
         String re;
         try {
@@ -33,40 +44,46 @@ public class MainApi {
     }
 
     public static void parseJSONWithJSONObject(String re) {
-        String id;
-//        String rs="";
+        String id, name, category, startTime, endTime, addr, status, teacher, credit, detailAddress;
         try {
-            re = "["+re+"]" ;
-//            JSONArray jsonArray = new JSONArray(re);
-//            for (int i = 0 ; i< jsonArray.length() ; i++){
-//                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                result = jsonObject.getString("Result");
-//                Log.d("JSTS", result);
-//            }
-//            result = "["+result+"]";
-//            JSONArray jsonArray1 = new JSONArray(result);
-//            for (int j = 0 ; j<jsonArray1.length() ; j++){
-//                JSONObject jsonObject1 = jsonArray1.getJSONObject(j);
-//                rs = jsonObject1.getString("Log");
-//                Log.d("JSTS2", "logb"+rs);
-//            }
-            String data = re.substring(re.indexOf("[{'id'"),re.indexOf("}]")+2);
-            Log.d("JSTS3",data);
+            String number = re.substring(re.indexOf("RetMsg\":\"["));
+            returnCode[0] = number.substring(10, number.indexOf(","));
+            returnCode[1] = number.substring(number.indexOf(", ") + 1, number.indexOf("]"));
+
+            re = "[" + re + "]";
+            String data = re.substring(re.indexOf("[{'id'"), re.indexOf("}]") + 2);
+            Log.d("JSTS3", data);
             JSONArray jsonArray = new JSONArray(data);
-            for (int i = 0 ; i< jsonArray.length() ; i++){
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 id = jsonObject.getString("id");
+                name = jsonObject.getString("name");
+                category = jsonObject.getString("category");
+                startTime = jsonObject.getString("startDate");
+                endTime = jsonObject.getString("endDate");
+                addr = jsonObject.getString("addr");
+                status = jsonObject.getString("status");
+                teacher = jsonObject.getString("teacher");
+                credit = jsonObject.getString("credit");
+                detailAddress = jsonObject.getString("detailAddress");
                 Log.d("JSTS", id);
-                idData[i]=id;
+                Log.d("JSTS", name);
+                idData[i] = id;
+                nameData[i] = name;
+                categoryData[i] = category;
+                startData[i] = startTime;
+                endData[i] = endTime;
+                addrData[i] = addr;
+                statusData[i] = status;
+                teacherData[i] = teacher;
+                creditData[i] = credit;
+                dAddrData[i] = detailAddress;
             }
-
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
 
 
     }
