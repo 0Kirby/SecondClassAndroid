@@ -1,5 +1,6 @@
 package www.xqjtqy.com.secondclassactivity;
 
+
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,9 +34,7 @@ public class DetailActivity extends AppCompatActivity {
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(DetailActivity.this, android.R.layout.simple_list_item_1, iData);
                 ListView listView = findViewById(R.id.list_view2);
                 listView.setAdapter(adapter);
-                listView.setOnItemClickListener((adapterView, view, position, id) -> {
-                    Toast.makeText(DetailActivity.this, "已经到底啦！", Toast.LENGTH_SHORT).show();
-                });
+                listView.setOnItemClickListener((adapterView, view, position, id) -> Toast.makeText(DetailActivity.this, "已经到底啦！", Toast.LENGTH_SHORT).show());
             })).start();
         } catch (Exception nep) {
             Toast.makeText(DetailActivity.this, "获取失败！", Toast.LENGTH_SHORT).show();

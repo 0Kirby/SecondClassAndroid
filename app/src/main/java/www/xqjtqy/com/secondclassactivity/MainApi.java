@@ -3,6 +3,7 @@ package www.xqjtqy.com.secondclassactivity;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import www.xqjtqy.com.secondclassactivity.common.Credential;
@@ -24,6 +25,7 @@ public class MainApi {
     static String[] creditData = new String[10];
     static String[] dAddrData = new String[10];
     static String[] returnCode = new String[2];
+    static boolean error = false;
 
     public static String getApi() {
         String re;
@@ -36,9 +38,9 @@ public class MainApi {
             InvokeResponse inrs = client.Invoke(inrq);
             re = InvokeResponse.toJsonString(inrs);
 
-
         } catch (TencentCloudSDKException e) {
             re = e.toString();
+            error = true;
         }
         return re;
     }
@@ -49,7 +51,10 @@ public class MainApi {
             String number = re.substring(re.indexOf("RetMsg\":\"["));
             returnCode[0] = number.substring(10, number.indexOf(","));
             returnCode[1] = number.substring(number.indexOf(", ") + 1, number.indexOf("]"));
-
+        } catch (StringIndexOutOfBoundsException sioobe) {
+            sioobe.printStackTrace();
+        }
+        try {
             re = "[" + re + "]";
             String data = re.substring(re.indexOf("[{'id'"), re.indexOf("}]") + 2);
             Log.d("JSTS3", data);
@@ -80,13 +85,17 @@ public class MainApi {
                 dAddrData[i] = detailAddress;
             }
 
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+     catch(
+    JSONException je)
 
-
+    {
+        je.printStackTrace();
+        getApi();
     }
+
+
+}
 
 
 }
