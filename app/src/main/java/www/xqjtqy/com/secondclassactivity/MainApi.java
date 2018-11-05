@@ -40,6 +40,7 @@ public class MainApi {
 
         } catch (TencentCloudSDKException e) {
             re = e.toString();
+            Log.d("JSTSnet", re);
             error = true;
         }
         return re;
@@ -50,7 +51,10 @@ public class MainApi {
         try {
             String number = re.substring(re.indexOf("RetMsg\":\"["));
             returnCode[0] = number.substring(10, number.indexOf(","));
-            returnCode[1] = number.substring(number.indexOf(", ") + 1, number.indexOf("]"));
+            String info = re.substring(re.indexOf("ret_msg"));
+            Log.d("JSTSif", info);
+            //returnCode[1] = number.substring(number.indexOf(", ") + 1, number.indexOf("]"));
+            returnCode[1] = info.substring(12, number.indexOf("}") - 4);
         } catch (StringIndexOutOfBoundsException sioobe) {
             sioobe.printStackTrace();
         }
@@ -85,17 +89,16 @@ public class MainApi {
                 dAddrData[i] = detailAddress;
             }
 
+        } catch (
+                JSONException je)
+
+        {
+            je.printStackTrace();
+            getApi();
         }
-     catch(
-    JSONException je)
 
-    {
-        je.printStackTrace();
-        getApi();
+
     }
-
-
-}
 
 
 }

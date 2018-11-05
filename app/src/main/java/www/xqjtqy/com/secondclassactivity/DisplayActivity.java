@@ -44,7 +44,7 @@ public class DisplayActivity extends AppCompatActivity {
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(DisplayActivity.this, android.R.layout.simple_list_item_1, MainApi.nameData);
                         ListView listView = findViewById(R.id.list_view);
                         listView.setAdapter(adapter);
-                        Toast.makeText(DisplayActivity.this, "共有" + MainApi.returnCode[0] + "个活动，返回值为" + MainApi.returnCode[1], Toast.LENGTH_LONG).show();
+                        Toast.makeText(DisplayActivity.this, "本活动"+MainApi.returnCode[1] + "！共有" + MainApi.returnCode[0] + "个活动！", Toast.LENGTH_LONG).show();
                         listView.setOnItemClickListener((parent, view, position, id) -> {
                             pos = position;
                             Intent intent = new Intent("DetailActivity.Action_START");
