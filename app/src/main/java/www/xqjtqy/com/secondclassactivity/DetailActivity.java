@@ -1,17 +1,18 @@
 package www.xqjtqy.com.secondclassactivity;
 
 
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class DetailActivity extends AppCompatActivity {
     protected Handler mHandler = new Handler();
-    String iData[] = new String[10];
+    String[] iData = new String[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
